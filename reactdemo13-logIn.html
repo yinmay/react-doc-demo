@@ -1,0 +1,100 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+class LoginForm extends Component{
+constructor(){
+    super()
+  this.state({
+      login:''
+
+  })
+  this.handlChange = this.handlChange.bind(this)
+  this.handlSubmit = this.handlSubmit.bind(this)
+}
+
+    handlChange(e){
+        this.setState({
+login= e.target.value
+})
+    }
+    handlSubmit(){
+        this.setState({
+            alert(`Welcome aboard, ${this.state.login}!`);
+
+        })
+    }
+    render(){
+        return(
+            <Form onChange={handlSubmit}>
+                <input type="text" value={this.state.login} onChange={handlChange} />
+                <input type="button" value="submit" /> 
+            </Form> 
+        )
+    }
+}
+class Border extends Component{
+
+render(){
+  return(
+     <div className={`${this.props.color}`}>
+        {props.children}
+     </div>
+  
+  )
+}
+}
+class Dialog extends Component{
+    render(){
+        return(
+            <Border color={blue} />
+            <div>{this.props.title}</div>  
+            <LoginForm />
+                </Border>
+        )
+    }
+}
+class WelcomeDialog extends Component{
+
+  render(){
+    return(
+       <Dialog  title="welcome" />
+    
+    )
+  }
+}
+
+
+
+render(
+<WelcomeDialog />,  document.getElementById('root')
+)
+
+</script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
